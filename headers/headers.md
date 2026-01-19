@@ -26,8 +26,9 @@ flowchart TB
     end
 
     A --> B --> C --> D --> E --> F --> G --> H --> I
-
+```
 ## UDP Header
+``` mermaid
 flowchart TB
     subgraph UDP["UDP Header (8 bytes / 64 bits)"]
         A["Source Port (16 bits)"]
@@ -37,7 +38,10 @@ flowchart TB
     end
 
     A --> B --> C --> D
+```
+
 ## IPv4 Header
+``` mermaid
 flowchart TB
     subgraph IP["IPv4 Header (Minimum 20 bytes / 160 bits)"]
         A["Version (4) | IHL (4) | DSCP (6) | ECN (2)"]
@@ -53,3 +57,4 @@ flowchart TB
     end
 
     A --> B --> C --> D --> E --> F --> G --> H --> I --> J
+```
