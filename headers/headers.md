@@ -12,49 +12,50 @@ All diagrams are compatible with **GitHub Markdown Mermaid rendering**.
 **Maximum size:** 60 bytes (with options)
 
 ```mermaid
-flowchart TB
-    subgraph TCP["TCP Header (Minimum 20 bytes / 160 bits)"]
-        A["Source Port (16 bits)"]
-        B["Destination Port (16 bits)"]
-        C["Sequence Number (32 bits)"]
-        D["Acknowledgment Number (32 bits)"]
-        E["Data Offset (4) | Reserved (3) | Flags (9)"]
-        F["Window Size (16 bits)"]
-        G["Checksum (16 bits)"]
-        H["Urgent Pointer (16 bits)"]
-        I["Options + Padding (0–40 bytes, optional)"]
+graph TD
+    subgraph TCP_Header["TCP Header"]
+        A1["Source Port 16 bits"]:::field
+        A2["Destination Port 16 bits"]:::field
+        B1["Sequence Number 32 bits"]:::field
+        C1["Acknowledgment Number 32 bits"]:::field
+        D1["Data Offset 4 bits | Reserved 3 bits | Flags 9 bits"]:::field
+        E1["Window Size 16 bits"]:::field
+        E2["Checksum 16 bits"]:::field
+        F1["Urgent Pointer 16 bits"]:::field
+        F2["Options + Padding 0–40 bytes"]:::field
     end
 
-    A --> B --> C --> D --> E --> F --> G --> H --> I
+    classDef field fill:#d9f0ff,stroke:#0074D9,stroke-width:1px;
 ```
 ## UDP Header
 ``` mermaid
-flowchart TB
-    subgraph UDP["UDP Header (8 bytes / 64 bits)"]
-        A["Source Port (16 bits)"]
-        B["Destination Port (16 bits)"]
-        C["Length (16 bits)"]
-        D["Checksum (16 bits)"]
+graph TD
+    subgraph UDP_Header["UDP Header"]
+        A1["Source Port 16 bits"]:::field
+        A2["Destination Port 16 bits"]:::field
+        B1["Length 16 bits"]:::field
+        B2["Checksum 16 bits"]:::field
     end
 
-    A --> B --> C --> D
+    classDef field fill:#d9f0ff,stroke:#0074D9,stroke-width:1px;
 ```
 
 ## IPv4 Header
 ``` mermaid
-flowchart TB
-    subgraph IP["IPv4 Header (Minimum 20 bytes / 160 bits)"]
-        A["Version (4) | IHL (4) | DSCP (6) | ECN (2)"]
-        B["Total Length (16 bits)"]
-        C["Identification (16 bits)"]
-        D["Flags (3) | Fragment Offset (13)"]
-        E["TTL (8 bits)"]
-        F["Protocol (8 bits)"]
-        G["Header Checksum (16 bits)"]
-        H["Source IP Address (32 bits)"]
-        I["Destination IP Address (32 bits)"]
-        J["Options + Padding (0–40 bytes, optional)"]
+graph TD
+    subgraph IPv4_Header["IPv4 Header"]
+        A1["Version 4 bits | IHL 4 bits | DSCP 6 bits | ECN 2 bits"]:::field
+        B1["Total Length 16 bits"]:::field
+        C1["Identification 16 bits"]:::field
+        D1["Flags 3 bits | Fragment Offset 13 bits"]:::field
+        E1["Time To Live 8 bits"]:::field
+        F1["Protocol 8 bits"]:::field
+        G1["Header Checksum 16 bits"]:::field
+        H1["Source IP Address 32 bits"]:::field
+        I1["Destination IP Address 32 bits"]:::field
+        J1["Options + Padding 0–40 bytes"]:::field
     end
 
-    A --> B --> C --> D --> E --> F --> G --> H --> I --> J
+    classDef field fill:#d9f0ff,stroke:#0074D9,stroke-width:1px;
+
 ```
