@@ -12,50 +12,47 @@ All diagrams are compatible with **GitHub Markdown Mermaid rendering**.
 **Maximum size:** 60 bytes (with options)
 
 ```mermaid
-graph TD
-    subgraph TCP_Header["TCP Header"]
-        A1["Source Port 16 bits"]:::field
-        A2["Destination Port 16 bits"]:::field
-        B1["Sequence Number 32 bits"]:::field
-        C1["Acknowledgment Number 32 bits"]:::field
-        D1["Data Offset 4 bits | Reserved 3 bits | Flags 9 bits"]:::field
-        E1["Window Size 16 bits"]:::field
-        E2["Checksum 16 bits"]:::field
-        F1["Urgent Pointer 16 bits"]:::field
-        F2["Options + Padding 0–40 bytes"]:::field
-    end
+graph TB
+    style TCP_Header fill:none,stroke:none
 
-    classDef field fill:#d9f0ff,stroke:#0074D9,stroke-width:1px;
+    subgraph TCP_Header["TCP Header"]
+        direction TB
+        R1["| Source Port (16 bits) | Destination Port (16 bits) |"]
+        R2["| Sequence Number (32 bits) |"]
+        R3["| Acknowledgment Number (32 bits) |"]
+        R4["| Data Offset (4) | Reserved (3) | Flags (9) |"]
+        R5["| Window Size (16 bits) | Checksum (16 bits) |"]
+        R6["| Urgent Pointer (16 bits) | Options + Padding (0–40 bytes) |"]
+    end
 ```
 ## UDP Header
 ``` mermaid
-graph TD
+graph TB
+    style UDP_Header fill:none,stroke:none
+
     subgraph UDP_Header["UDP Header"]
-        A1["Source Port 16 bits"]:::field
-        A2["Destination Port 16 bits"]:::field
-        B1["Length 16 bits"]:::field
-        B2["Checksum 16 bits"]:::field
+        direction TB
+        R1["| Source Port (16 bits) | Destination Port (16 bits) |"]
+        R2["| Length (16 bits) | Checksum (16 bits) |"]
     end
 
-    classDef field fill:#d9f0ff,stroke:#0074D9,stroke-width:1px;
 ```
 
 ## IPv4 Header
 ``` mermaid
-graph TD
+graph TB
+    style IPv4_Header fill:none,stroke:none
+
     subgraph IPv4_Header["IPv4 Header"]
-        A1["Version 4 bits | IHL 4 bits | DSCP 6 bits | ECN 2 bits"]:::field
-        B1["Total Length 16 bits"]:::field
-        C1["Identification 16 bits"]:::field
-        D1["Flags 3 bits | Fragment Offset 13 bits"]:::field
-        E1["Time To Live 8 bits"]:::field
-        F1["Protocol 8 bits"]:::field
-        G1["Header Checksum 16 bits"]:::field
-        H1["Source IP Address 32 bits"]:::field
-        I1["Destination IP Address 32 bits"]:::field
-        J1["Options + Padding 0–40 bytes"]:::field
+        direction TB
+        R1["| Version (4) | IHL (4) | DSCP (6) | ECN (2) |"]
+        R2["| Total Length (16 bits) | Identification (16 bits) |"]
+        R3["| Flags (3) | Fragment Offset (13) |"]
+        R4["| Time To Live (8) | Protocol (8) | Header Checksum (16) |"]
+        R5["| Source IP Address (32 bits) |"]
+        R6["| Destination IP Address (32 bits) |"]
+        R7["| Options + Padding (0–40 bytes) |"]
     end
 
-    classDef field fill:#d9f0ff,stroke:#0074D9,stroke-width:1px;
 
 ```
