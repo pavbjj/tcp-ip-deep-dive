@@ -207,6 +207,28 @@ Typical sequence:
 GOAWAY  
 (active streams finish)  
 TCP FIN  
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
 
+    C->>S: PING
+    S->>C: PING ACK
+
+    C->>S: HEADERS (stream 1)
+    C->>S: HEADERS (stream 3)
+    C->>S: DATA
+
+    S->>C: WINDOW_UPDATE
+    S->>C: SETTINGS
+
+    S->>C: GOAWAY (last_stream_id=3)
+
+    Note over C,S: No new streams allowed
+    Note over C,S: Existing streams complete
+
+    C->>S: RST_STREAM (stream 3) optional
+    S-->>C: TCP FIN
+```
 
 
