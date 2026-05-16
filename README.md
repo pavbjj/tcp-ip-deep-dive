@@ -1,4 +1,4 @@
 # Introduction
-This repo contains a practical examples of TCP/IP and HTTP behaviour.
+This repo contains a practical examples of TCP/IP and HTTP behavior.
 
 ---
